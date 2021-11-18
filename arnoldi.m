@@ -1,11 +1,11 @@
 1;
 function [Q, H] = arnoldi_iter(A, b, n, eps = 10e-16, reort = 1)
-  # Calcola una base ortonormale dell'n-esimo sottospazio di Krylov 
+  # Calcola una base ortonormale dell'(n+1)-esimo sottospazio di Krylov 
   # formanto dalla matrice A e dal vettore b.
   
   % Inizializzazione delle matrici H e Q
   H = zeros(n + 1, n);
-  Q = zeros(size(A)(1), n);
+  Q = zeros(size(A)(1), n+1);
   
   % Inizializzazione della prima colonna di Q
   Q(:,1) = b / norm(b); # primo vettore dello spazio di Krylov normalizzato
@@ -38,12 +38,12 @@ endfunction
 
 
 function [Q, H] = inverse_arnoldi_iter(A, b, n, eps = 10e-16,gmres_iter = 50, reort = 1)
-  # Calcola una base ortonormale dell'n-esimo sottospazio di Krylov 
+  # Calcola una base ortonormale dell'(n+1)-esimo sottospazio di Krylov 
   # formanto dalla matrice A^(-1) e dal vettore b.
   
   % Inizializzazione delle matrici H e Q
   H = zeros(n + 1, n);
-  Q = zeros(size(A)(1), n);
+  Q = zeros(size(A)(1), n+1);
   
   % Inizializzazione della prima colonna di Q
   Q(:,1) = b / norm(b); # primo vettore dello spazio di Krylov normalizzato
